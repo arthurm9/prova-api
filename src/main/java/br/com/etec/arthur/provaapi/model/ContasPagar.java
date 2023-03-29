@@ -9,8 +9,8 @@ import java.util.*;
 public class ContasPagar {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    private Date data;
+    private Long id;
+    private Date dataconta;
     private Date datavencimento;
     private BigDecimal valor;
 
@@ -30,17 +30,17 @@ public class ContasPagar {
         return Objects.hash(id);
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
     public Date getData() {
-        return data;
+        return dataconta;
     }
     public void setData(Date data) {
-        this.data = data;
+        this.dataconta = data;
     }
     public Date getDatavencimento() {
         return datavencimento;

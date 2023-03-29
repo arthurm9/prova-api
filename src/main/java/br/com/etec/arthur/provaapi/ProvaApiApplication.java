@@ -8,6 +8,7 @@ public class ProvaApiApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ProvaApiApplication.class, args);
+		System.out.println("API RUNNING");
 	}
 
 }
