@@ -1,5 +1,7 @@
 package br.com.etec.arthur.provaapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.*;
 
@@ -12,6 +14,7 @@ public class Cliente {
     private Long id;
     private String nome;
 
+    @JsonIgnore
     @OneToMany
     private List<ContasPagar> contaspagar = new ArrayList<>();
 
