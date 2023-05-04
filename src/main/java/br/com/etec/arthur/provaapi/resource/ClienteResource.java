@@ -19,6 +19,4 @@ public class ClienteResource {
     public List<Cliente> listarTodosClientes() {
         return clienteRepository.findAll();
     }
-
-    // localhost:8080/clientes/todos
 }
