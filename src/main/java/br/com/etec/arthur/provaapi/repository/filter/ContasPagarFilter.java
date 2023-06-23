@@ -1,26 +1,35 @@
 package br.com.etec.arthur.provaapi.repository.filter;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
+import java.util.regex.Pattern;
 
 public class ContasPagarFilter {
-    private Date dataconta;
-    private Date datavencimento;
+
+    @DateTimeFormat(pattern="yyyy/MM/dd")
+    private LocalDate dataconta;
+
+    @DateTimeFormat(pattern="yyyy/MM/dd")
+    private LocalDate datavencimento;
+
     private BigDecimal valor;
 
-    public Date getDataconta() {
+    public LocalDate getDataconta() {
         return dataconta;
     }
 
-    public void setDataconta(Date dataconta) {
+    public void setDataconta(LocalDate dataconta) {
         this.dataconta = dataconta;
     }
 
-    public Date getDatavencimento() {
+    public LocalDate getDatavencimento() {
         return datavencimento;
     }
 
-    public void setDatavencimento(Date datavencimento) {
+    public void setDatavencimento(LocalDate datavencimento) {
         this.datavencimento = datavencimento;
     }
 

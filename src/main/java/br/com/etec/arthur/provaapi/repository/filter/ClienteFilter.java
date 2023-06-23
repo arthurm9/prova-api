@@ -1,13 +1,13 @@
 package br.com.etec.arthur.provaapi.repository.filter;
 
 public class ClienteFilter {
-    private String name;
+    private String nome;
 
-    public String getName() {
-        return name;
+    public String getNomecliente() {
+        return nome;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNomecliente(String name) {
+        this.nome = name;
     }
 }

@@ -2,6 +2,7 @@ package br.com.etec.arthur.provaapi.model;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.*;
 
 @Entity
@@ -10,8 +11,8 @@ public class ContasPagar {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Date dataconta;
-    private Date datavencimento;
+    private LocalDate dataconta;
+    private LocalDate datavencimento;
     private BigDecimal valor;
 
     @ManyToOne
@@ -36,16 +37,16 @@ public class ContasPagar {
     public Long getId() {
         return id;
     }
-    public Date getData() {
+    public LocalDate getData() {
         return dataconta;
     }
-    public void setData(Date data) {
+    public void setData(LocalDate data) {
         this.dataconta = data;
     }
-    public Date getDatavencimento() {
+    public LocalDate getDatavencimento() {
         return datavencimento;
     }
-    public void setDatavencimento(Date datavencimento) {
+    public void setDatavencimento(LocalDate datavencimento) {
         this.datavencimento = datavencimento;
     }
     public BigDecimal getValor() {
