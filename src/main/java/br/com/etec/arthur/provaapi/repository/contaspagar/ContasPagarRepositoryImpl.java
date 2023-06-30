@@ -38,7 +38,6 @@ public class ContasPagarRepositoryImpl implements ContasPagarRepositoryQuery{
         Predicate[] predicates = criarRestricoes(contasPagarFilter, builder, root);
 
         criteria.where(predicates);
-        criteria.orderBy(builder.asc(root.get("datavencimento")));
 
         TypedQuery<ContasPagarDto> query = manager.createQuery(criteria);
         adicionarRestricoesDePaginacao(query, pageable);
@@ -53,13 +52,12 @@ public class ContasPagarRepositoryImpl implements ContasPagarRepositoryQuery{
 
         Predicate[] predicates = criarRestricoes(contasPagarFilter, builder, root);
         criteria.where(predicates);
-        criteria.orderBy(builder.asc(root.get("datavencimento")));
 
         criteria.select(builder.count(root));
         return manager.createQuery(criteria).getSingleResult();
     }
 
-    private void adicionarRestricoesDePaginacao(TypedQuery<ContasPagarDto> query, Pageable pageable) {
+    private void adicionarRestricoesDePaginacao(TypedQuery<?> query, Pageable pageable) {
         int paginaAtual = pageable.getPageNumber();
         int totalRegistrosDaPagina = pageable.getPageSize();
         int primeiroRegistroDaPagina = paginaAtual * totalRegistrosDaPagina;
@@ -71,34 +69,18 @@ public class ContasPagarRepositoryImpl implements ContasPagarRepositoryQuery{
     private Predicate[] criarRestricoes(ContasPagarFilter contasPagarFilter, CriteriaBuilder builder, Root<ContasPagar> root) {
         List<Predicate> predicates = new ArrayList<>();
 
-        if(contasPagarFilter.getDatavencimento() != null){
-            predicates.add(builder.equal(root.get("datavencimento"), contasPagarFilter.getDatavencimento()));
-        }
-
-        if(contasPagarFilter.getDatavencimento() != null){
-            predicates.add(builder.greaterThanOrEqualTo(root.get("datavencimento"), contasPagarFilter.getDatavencimento()));
-        }
-
-        if(contasPagarFilter.getDatavencimento() != null){
-            predicates.add(builder.lessThanOrEqualTo(root.get("datavencimento"), contasPagarFilter.getDatavencimento()));
-        }
-
         if(contasPagarFilter.getDataconta() != null){
             predicates.add(builder.equal(root.get("dataconta"), contasPagarFilter.getDataconta()));
         }
 
-        if(contasPagarFilter.getDataconta() != null){
-            predicates.add(builder.greaterThanOrEqualTo(root.get("dataconta"), contasPagarFilter.getDataconta()));
-        }
-
-        if(contasPagarFilter.getDataconta() != null){
-            predicates.add(builder.lessThanOrEqualTo(root.get("dataconta"), contasPagarFilter.getDataconta()));
+        if(contasPagarFilter.getDatavencimento() != null){
+            predicates.add(builder.equal(root.get("datavencimento"), contasPagarFilter.getDatavencimento()));
         }
 
         if(contasPagarFilter.getValor() != null){
             predicates.add(builder.equal(root.get("valor"), contasPagarFilter.getValor()));
         }
 
-        return predicates.toArray((new Predicate[predicates.size()]));
+        return predicates.toArray(new Predicate[predicates.size()]);
     }
 }

@@ -4,15 +4,12 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Date;
-import java.util.regex.Pattern;
-
 public class ContasPagarFilter {
 
-    @DateTimeFormat(pattern="yyyy/MM/dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dataconta;
 
-    @DateTimeFormat(pattern="yyyy/MM/dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate datavencimento;
 
     private BigDecimal valor;

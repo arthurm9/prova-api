@@ -25,7 +25,7 @@ public class ClienteResource {
     }
 
     @GetMapping()
-    public Page<Cliente> pesquisar(ClienteFilter clienteFilter, Pageable pageable){
+    public Page<Cliente> filtrarCliente(ClienteFilter clienteFilter, Pageable pageable){
         return clienteRepository.filtrarCliente(clienteFilter, pageable);
     }
 }

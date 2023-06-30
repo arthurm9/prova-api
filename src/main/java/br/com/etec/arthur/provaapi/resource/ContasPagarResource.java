@@ -25,7 +25,7 @@ public class ContasPagarResource {
     }
 
     @GetMapping()
-    public Page<ContasPagarDto> pesquisar(ContasPagarFilter contasPagarFilter, Pageable pageable){
+    public Page<ContasPagarDto> filtrarContasPagar(ContasPagarFilter contasPagarFilter, Pageable pageable){
         return contasPagarRepository.filtrarContasPagar(contasPagarFilter, pageable);
     }
 }
